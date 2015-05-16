@@ -1,0 +1,11 @@
+#Db
+data/*
+
+#Modules
+node_modules/*
+
+#bin
+bin/*
+
+#log
+npm-debug.log
