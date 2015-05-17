@@ -12,7 +12,8 @@ angular.module('UserService', [])
 			/* Get all users */
 
 			getAll : function(){
-				return $http.get('/users/');
+				
+				return $http.get('/users');
 			},
 			/* 
 				Create new user
@@ -30,5 +31,7 @@ angular.module('UserService', [])
 
 
 
-		}
+
+		};
+		return User;
 	});

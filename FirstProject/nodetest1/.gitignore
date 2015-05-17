@@ -1,5 +1,5 @@
 #Db
-data/*
+config/data/*
 
 #Modules
 node_modules/*

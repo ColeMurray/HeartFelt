@@ -19,9 +19,9 @@ var path = require('path');
 		/* 
 			GET all users
 		*/
-		app.get('/users/', function(req,res){
-			User.find(function(err, userlist){
-				if (error){
+		app.get('/users', function(req,res){
+			User.find({},function(err, userlist){
+				if (err){
 					res.send(err);
 				}else{
 					res.json(userlist);
@@ -33,8 +33,18 @@ var path = require('path');
 			POST : new user
 		*/
 
-		app.post('/users/', function(req,res){
-			// do something
+		app.post('/users', function(req,res){
+			var user = new User();
+			user.username = req.body.username;
+			user.password = req.body.password;
+
+			user.save(function(err){
+				if (err){
+					res.send(err);
+				}else{
+					res.json({ message : 'User created'});
+				}
+			});
 		});
 
 		/********************

@@ -8,11 +8,15 @@ angular.module('appRoutes', [])
 			
 			.when ('/login', {
 				templateUrl: 'views/login.html',
-				controller: 'AuthCtrl'
+				controller: 'AuthController'
 			})
 			.when ('/register', {
 				templateUrl: 'views/register.html',
 				controller : 'AuthCtrl'
+			})
+			.when('/userlist', {
+				templateUrl: 'views/users.html',
+				controller : 'UserController'
 			});
 			
 	});

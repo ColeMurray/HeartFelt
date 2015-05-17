@@ -1,0 +1,15 @@
+<div class="container" ng-controller="UserController">
+	<button class="btn btn-default" ng-click="showAll()">Load all users</button>
+	<table>
+		<thead>
+			<th>Username</th>
+			<th>Password</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in users">
+				<td> {{ x.username }} </td>
+				<td> {{ x.password }} </td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -5,6 +5,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 // configuration =====================
 
@@ -16,7 +17,7 @@ var db = require('./config/db')
 var port = process.env.PORT || 8080;
 
 //connect db
-//mongoose.connect(db.url);
+mongoose.connect(db.url);
 
 app.use(bodyParser.json());
 
