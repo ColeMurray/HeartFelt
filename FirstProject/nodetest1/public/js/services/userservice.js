@@ -19,7 +19,7 @@ angular.module('UserService', [])
 				Create new user
 			*/
 			createUser : function(userData) {
-				return $http.post('/users/', userData);
+				return $http.post('/users', userData);
 			},
 
 			/* 

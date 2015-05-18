@@ -1,10 +1,16 @@
 {
     "name" : "starter-node-angular",
     "main" : "server.js",
-    "dependencies":{
+    "dependencies": {
         "express" : "*",
         "mongoose":"*",
+        "bcrypt-nodejs" : "*",
+        "jsonwebtoken" : "*",
+
         "body-parser":"*",
-        "method-override":"*"
+        "cookie-parser" : "*",
+        "method-override":"*",
+        "morgan":"*",
+        "express-session" : "*"
     }
 }

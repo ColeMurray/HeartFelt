@@ -12,7 +12,7 @@ angular.module('appRoutes', [])
 			})
 			.when ('/register', {
 				templateUrl: 'views/register.html',
-				controller : 'AuthCtrl'
+				controller : 'AuthController'
 			})
 			.when('/userlist', {
 				templateUrl: 'views/users.html',
