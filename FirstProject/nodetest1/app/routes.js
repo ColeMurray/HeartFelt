@@ -8,6 +8,7 @@
 
 //bring in user object
 var User = require('./models/user');
+var Post = require('./models/post');
 var path = require('path');
 var TokenSecret = require( __base + 'config/tokensecret');
 
@@ -21,7 +22,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 			GET all users
 		*/
 
-		app.post('/users', function(req,res){
+		app.get('/users', function(req,res){
 			User.find({},function(err, userlist){
 				if (err){
 					res.send(err);
@@ -87,11 +88,11 @@ var TokenSecret = require( __base + 'config/tokensecret');
 				}
 			});
 		});
-		
+
 		/* Function used to verify token */
 		var verifyToken = function (req,res,next){
 			console.log('YAYYY');
-			var token = (req.body.token || req.query.token);
+			var token = (req.body.token || req.query.token || req.headers['x-access-token']);
 
 			if (token){
 				jwt.verify(token,TokenSecret.key, 
@@ -111,6 +112,42 @@ var TokenSecret = require( __base + 'config/tokensecret');
 			}
 		
 		};
+
+		app.get('/posts',verifyToken, function(req,res){
+			console.log(res.decoded.username);
+			Post.find({ author : res.decoded.username }, function(err,postList){
+				if (err){
+					res.send(err);
+				} else if (!postList) {
+					res.send({ success : false, message : 'Failure retrieving posts'});
+				} else if (postList){
+					res.json(postList);
+				}
+			});
+		});
+
+		app.post('/posts', verifyToken, function (req,res){
+			console.log(res.decoded);
+			var token = res.decoded;
+			if (token){
+				var newPost = new Post();
+				newPost.author = token.username;
+				newPost.title = req.body.title;
+				newPost.content = req.body.content;
+
+				newPost.save(function(err){
+					if (err){
+						res.send(err);
+					}else{
+						res.send({success : true});
+					}
+				})
+			
+			}
+			
+		});
+		
+		
 			
 		
 

@@ -17,6 +17,14 @@ angular.module('appRoutes', [])
 			.when('/userlist', {
 				templateUrl: 'views/users.html',
 				controller : 'UserController'
+			})
+			.when ('/post' , {
+				templateUrl : 'views/post.html',
+				controller : 'PostController'
+				
+			})
+			.when('/create',{
+				templateUrl : 'views/createPost.html'
 			});
 			
 	});

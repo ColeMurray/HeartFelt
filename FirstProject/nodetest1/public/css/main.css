@@ -2,3 +2,27 @@
 	margin-top:150px;
 	margin-bottom:150px;
 }
+
+.list-left{
+	height : 100%;
+	overflow : scroll ;
+}
+
+.full-page{
+	overflow : hidden;
+}
+
+html,body{
+	height:100%;
+	overflow: hidden;
+}
+.container-fluid,.container,.row,.row-fluid{
+	height:100%;
+}
+.my-elem{
+	height:100%;
+	min-height: 100%;
+	overflow:auto;
+}
+
+
