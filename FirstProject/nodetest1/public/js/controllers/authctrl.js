@@ -1,23 +1,27 @@
 
-angular.module('AuthCtrl',['UserService'])
-	.controller('AuthController', function($scope,$location, User){
+angular.module('AuthCtrl',['AuthService'])
+	.controller('AuthController', function($scope,$location, $state, Auth){
 		
 		$scope.user = {};
 
 		$scope.login = function(){
-			console.log($scope.user.email + ' ' + $scope.user.password);
-			$location.path('/');
-		}
+			console.log($scope.user.username + ' ' + $scope.user.password);
+			Auth.login($scope.user).error(function(err){
+				console.log(err);
+				$scope.error = err;
+			}).then(function(){
+				$state.go('post');
+
+			});
+		};
 
 		$scope.register = function(){
 			console.log($scope.user.username);
-			var req = User.createUser($scope.user).success(function(data){
-				console.log(data);
+			Auth.register($scope.user).error(function(err){
+				$scope.error = err;
+			}).then(function(){
 				$location.path('/');
-			}).error(function(err){
-				console.log(err);
-				//TODO: Add handling to display this message;
-			});
+			})
 		
-		}
+		};
 	});

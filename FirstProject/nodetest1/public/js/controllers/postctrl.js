@@ -1,17 +1,22 @@
-angular.module('PostCtrl', [])
-	.controller('PostController', function($scope){
-		var populateList = function(){
-			var arr = [];
-			for ( i = 0; i < 15 ; i++){
-				arr.push('Message here');
-			}
-			return arr;
-		}
+angular.module('PostCtrl', ['PostService'])
+	.controller('PostController', function ($scope,Post){
+		$scope.clicked = false;
+		$scope.currpost = {};
+		
 
-		$scope.posts = populateList();
-	})
-	.directive('banner', function() {
-    	return function (scope, element, attrs) {
-        	element.height(50);
-    	}
+		$scope.click = function(){
+			$scope.clicked = true;
+		};
+		
+		Post.getAll().then(function(data){
+				$scope.posts = data.data;
+
+		});
+
+		$scope.create = function(){
+			Post.create($scope.currpost);
+		}
+		
+
+		
 	});

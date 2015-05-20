@@ -1,5 +1,12 @@
 <!-- public/views/login.html-->
 <div class="container page-center" ng-controller="AuthController">
+<div class="page-header">
+	<h1> HeartFelt</h1>
+</div>
+
+<div ng-show="error" class="alert alert-danger row">
+	{{error.message}}
+</div>
 <form ng-submit='login()'>
 	<div class="form-group">
 		<label for="email"> Email Address</label>

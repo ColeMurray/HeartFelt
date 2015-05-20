@@ -1,3 +1,3 @@
 //public/js/app.js
 
-angular.module('myApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'AuthCtrl', 'UserCtrl', 'PostCtrl', 'UserService']);
+angular.module('myApp', ['ui.router', 'appRoutes', 'MainCtrl', 'AuthCtrl', 'UserCtrl', 'PostCtrl', 'PostContentCtrl', 'AuthService', 'PostService']);

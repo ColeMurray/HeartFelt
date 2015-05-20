@@ -35,15 +35,15 @@ var TokenSecret = require( __base + 'config/tokensecret');
 		
 
 		/*
-			POST : signup new user;
+			POST : register new user;
 		*/
 
-		app.post('/signup', function(req,res,next){
+		app.post('/register', function(req,res,next){
 			User.findOne({ username : req.body.username }, function(err,user1){
 				if (err){
 					res.send(err);
 				} else if (user1) {
-					res.json( { message : 'User exists'});
+					res.status(403).json( { message : 'User exists'});
 				} else {
 					var newUser = new User();
 					newUser.username = req.body.username;
@@ -53,7 +53,15 @@ var TokenSecret = require( __base + 'config/tokensecret');
 						if (err) throw err;
 
 						console.log ('User saved');
-						res.json({success: true});
+						
+						var token = jwt.sign(newUser,TokenSecret.key,{
+							expiresInMinutes : 1440
+						});
+						res.json({
+									success: true,
+									token : token
+								}
+						);
 					});
 				}
 			});
@@ -67,11 +75,11 @@ var TokenSecret = require( __base + 'config/tokensecret');
 					throw err;
 
 				if (!user1){
-					res.json({ success : false , message : 'Login Failed, User not found'});
+					res.status(403).json({ success : false , message : 'Login Failed, User not found'});
 				} else if (user1){
 
 					if ( user1.password != req.body.password ){
-						res.json( { success : false, message : 'Wrong password'});
+						res.status(403).json( { success : false, message : 'Wrong password'});
 					} else{
 
 						//create token
@@ -107,7 +115,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 				);
 			
 				
-			}else{
+			} else{
 				console.log('failure');
 			}
 		
@@ -122,6 +130,19 @@ var TokenSecret = require( __base + 'config/tokensecret');
 					res.send({ success : false, message : 'Failure retrieving posts'});
 				} else if (postList){
 					res.json(postList);
+				}
+			});
+		});
+
+		app.get('/posts/:id',verifyToken, function(req,res){
+			var id = req.params.id;
+			Post.findOne({_id : id}, function(err, post1){
+				if (err){
+					res.send(err);
+				} else if (!post1){
+					res.send({ success : false, message : 'Post not found'});
+				} else if (post1){
+					res.json(post1);
 				}
 			});
 		});

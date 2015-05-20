@@ -1,11 +1,16 @@
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="col-md-12" id="title">
-			<input class="col-md-12" style="padding-top:8px; padding-bottom:8px; font-size:32px; margin-bottom:16px" type="text" placeholder="EnterText">
-		</div>
+		<form ng-submit='create()'>
+			<div class="col-md-12" id="title">
+				<input class="col-md-12" style="padding-top:8px; padding-bottom:8px; font-size:32px; margin-bottom:16px" type="text" ng-model='currpost.title' placeholder="EnterText">
+			</div>
 
-		<div class="col-md-12" id="content">
-			<textarea class="col-md-12" style="padding-bottom:350px; font-size:24px" type="text" placeholder="Description"></textarea>
-		</div>
+			<div class="col-md-12" id="content">
+				<textarea class="col-md-12" style="padding-bottom:350px; font-size:24px" type="text" ng-model='currpost.content' placeholder="Description"></textarea>
+			</div>
+
+			<button class="btn btn-alert">Save</button>
+		</form>
 	</div>
+
 </div>
