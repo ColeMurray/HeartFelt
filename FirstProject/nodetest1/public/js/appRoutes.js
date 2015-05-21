@@ -1,5 +1,6 @@
 angular.module('appRoutes', [])
-	.config (function ($stateProvider,$urlRouterProvider){
+	.config (function ($stateProvider,$urlRouterProvider, $httpProvider){
+		$httpProvider.interceptors.push('SessionInterceptor');
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider

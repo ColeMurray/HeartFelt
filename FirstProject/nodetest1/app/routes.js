@@ -116,7 +116,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 			
 				
 			} else{
-				console.log('failure');
+				res.status(403).send('Invalid Token');
 			}
 		
 		};
