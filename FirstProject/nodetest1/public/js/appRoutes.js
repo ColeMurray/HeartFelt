@@ -7,7 +7,8 @@ angular.module('appRoutes', [])
 
 			.state('home', {
 				url: '/',
-				templateUrl :'views/home.html'
+				templateUrl :'views/home.html',
+				controller : 'MainController'
 			})
 			.state('login',{
 				url:'/login',
@@ -24,7 +25,7 @@ angular.module('appRoutes', [])
 				templateUrl : 'views/post.html',
 				controller : 'PostController',
 				
-			}
+			})
 
 			.state('create', {
 				url : '/create',
