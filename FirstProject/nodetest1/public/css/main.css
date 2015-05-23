@@ -28,6 +28,7 @@ html{
 .post-header{
 	text-align: center;
 	font-size: 32px;
+	padding-bottom:8px;
 }
 
 
@@ -65,7 +66,7 @@ html{
 }
 
 .glyphicon.glyphicon-pencil {
-	font-size:32px;
+	font-size:24px;
 }
 
 .post-container{
