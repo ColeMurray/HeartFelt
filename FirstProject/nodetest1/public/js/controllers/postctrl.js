@@ -1,8 +1,8 @@
 angular.module('PostCtrl', ['PostService'])
-	.controller('PostController', function ($scope,Post){
+	.controller('PostController', function ($scope,$timeout,Post){
 		$scope.clicked = false;
 		$scope.currpost = {};
-		
+
 		
 
 		$scope.click = function(){
@@ -19,7 +19,10 @@ angular.module('PostCtrl', ['PostService'])
 	
 
 		$scope.create = function(){
-			Post.create($scope.currpost);
+			var p = Post.create($scope.currpost).success(function(data){
+				$scope.currpost = data;
+			});
+			console.log(p);
 		};
 
 		$scope.handlePost = function(){
@@ -39,7 +42,27 @@ angular.module('PostCtrl', ['PostService'])
 
 		$scope.clearPost = function(){
 			$scope.currpost = {};
+		};
+
+		$scope.newPost = function(){
+			$scope.clearPost().then($scope.create());
 		}
+
+		var timeout = null;
+		var saveUpdates = function(){
+			$scope.handlePost();
+		};
+
+		var debounceSaveUpdates = function(newVal, oldVal){
+			if (newVal != oldVal){
+				if (timeout){
+					$timeout.cancel(timeout);
+				}
+				timeout = $timeout(saveUpdates,1000); //1000 = 1 second
+			}
+		};
+		$scope.$watch('currpost.title', debounceSaveUpdates);
+		$scope.$watch('currpost.content', debounceSaveUpdates);
 
 		
 

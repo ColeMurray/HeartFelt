@@ -1,16 +1,16 @@
-<div class="container-fluid" style="border:1px solid #e0e0e0; background:#e0e0e0; height:100%" >
+<div class="container-fluid post-container" >
 	<div class="row">
 		<div class="col-xs-6 col-md-4">
 			<div class="post-header">
-				Posts <button class="btn btn-default" ng-click='clearPost()' style="float:right;">New Post</button>
+				Posts <button class="btn btn-default"><span class="glyphicon glyphicon-pencil" ng-click='newPost()' style="float:right;"></span></button>
 			</div>
 		</div>
 	</div>
 	<div class="row" style="height:100%">
 		<div class="col-xs-6 col-md-4" style="height:100%">
 			<div class="post-list">
-				<ul class="list-group">
-					<li ng-repeat='x in posts track by $index' class="list-group-item" style="padding-bottom:16px;padding-top:16px;">
+				<ul class="list-group post-group">
+					<li ng-repeat='x in posts track by $index' class="list-group-item post-group-item" style="padding-bottom:16px;padding-top:16px;">
 						<a ng-click='setPost(x)' >{{x.title}}</a>
 					</li>
 				</ul>

@@ -184,11 +184,11 @@ var TokenSecret = require( __base + 'config/tokensecret');
 				newPost.title = req.body.title;
 				newPost.content = req.body.content;
 
-				newPost.save(function(err){
+				newPost.save(function(err,post1){
 					if (err){
 						res.send(err);
 					}else{
-						res.send({success : true});
+						res.json(post1);
 					}
 				})
 			
