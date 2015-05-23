@@ -1,7 +1,9 @@
 <div class="full-height">
-	<form class="post-content" ng-submit='handlePost()'>
+	<div class="post-content">
+	<form style="height:100%" ng-submit='handlePost()'>
 		<input class="post-content-title" type="text" placeholder="Untitled" ng-model='currpost.title' >
 		<textarea class="content-description" type="text" placeholder="Description" ng-model='currpost.content'></textarea>
-		<button class="btn btn-warning" style="float:right">Save</button>
+		
 	</form>
+	</div>
 </div>
