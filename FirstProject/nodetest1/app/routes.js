@@ -146,6 +146,33 @@ var TokenSecret = require( __base + 'config/tokensecret');
 				}
 			});
 		});
+		app.put('/posts/:id',verifyToken, function(req,res){
+			var id = req.params.id;
+			var title = req.body.title;
+			var content = req.body.content;
+			var date = Date.now;
+			Post.findOneAndUpdate(
+				{ _id : id },
+				{ 
+					title : title,
+					content : content,
+					"date" : Date.now(),
+				}, function(err, upPost){
+						if (err){
+							res.send(err);
+						}
+						console.log(upPost);
+						if (!upPost){
+							res.status(400).send( { message : 'Post not found'});
+						} else{
+							res.send ({
+								success : true
+							});
+						}
+					}
+			);
+
+		});
 
 		app.post('/posts', verifyToken, function (req,res){
 			console.log(res.decoded);

@@ -16,6 +16,7 @@ angular.module('PostCtrl', ['PostService'])
 		$scope.create = function(){
 			Post.create($scope.currpost);
 		}
+
 		
 
 		

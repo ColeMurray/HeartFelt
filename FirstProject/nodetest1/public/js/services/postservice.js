@@ -16,6 +16,14 @@ angular.module('PostService',['AuthService'])
 							};
 				console.log(data);
 				return $http.post('/posts',data);
+			},
+
+			update : function(postData){
+				var data = { 
+					title : postData.title,
+					content : postData.content
+					};
+				return $http.put('/posts/' + postData._id, data);		 
 			}
 		};
 
