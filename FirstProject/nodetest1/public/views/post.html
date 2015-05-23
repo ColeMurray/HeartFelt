@@ -1,17 +1,17 @@
 <div class="container-fluid" style="border:1px solid #e0e0e0; background:#e0e0e0" >
 	<div class="col-xs-6 col-md-4" style="height:80vh;">
 		<div class="post-header">
-			Posts
+			Posts <button class="btn btn-default" ng-click='clearPost()'>New Post</button>
 		</div>
 		<div style="height:70vh;overflow:auto; border: 1px solid #e0e0e0;">
 			<ul class="list-group" style="margin-bottom:0px" >
 				<li ng-repeat='x in posts track by $index' class="list-group-item" style="padding-bottom:16px;padding-top:16px;">
-					<a ui-sref=".content({id: '{{x._id}}'})">{{x.title}}</a>
+					<a ng-click='setPost(x)' >{{x.title}}</a>
 				</li>
 			</ul>
 
 		</div>
 	</div>
 	<div class="col-xs-6 col-md-8">
-		<div ui-view></div>
+		<div ng-include="'views/post-content.html'"></div>
 </div>

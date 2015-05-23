@@ -24,12 +24,7 @@ angular.module('appRoutes', [])
 				templateUrl : 'views/post.html',
 				controller : 'PostController',
 				
-			})
-			.state('post.content', {
-				url : '/content/:id',
-				templateUrl : 'views/post-content.html',
-				controller : 'PostContentController'
-			})
+			}
 
 			.state('create', {
 				url : '/create',

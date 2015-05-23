@@ -75,11 +75,11 @@ var TokenSecret = require( __base + 'config/tokensecret');
 					throw err;
 
 				if (!user1){
-					res.status(403).json({ success : false , message : 'Login Failed, User not found'});
+					res.status(401).json({ success : false, message : 'User not found' });
 				} else if (user1){
 
 					if ( user1.password != req.body.password ){
-						res.status(403).json( { success : false, message : 'Wrong password'});
+						res.status(401).json( { success : false, message : 'Wrong password'});
 					} else{
 
 						//create token
@@ -123,7 +123,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 
 		app.get('/posts',verifyToken, function(req,res){
 			console.log(res.decoded.username);
-			Post.find({ author : res.decoded.username }, function(err,postList){
+			Post.find({ author : res.decoded.username }).sort({_id : -1}).exec( function(err,postList){
 				if (err){
 					res.send(err);
 				} else if (!postList) {
@@ -160,15 +160,16 @@ var TokenSecret = require( __base + 'config/tokensecret');
 				}, function(err, upPost){
 						if (err){
 							res.send(err);
-						}
-						console.log(upPost);
-						if (!upPost){
-							res.status(400).send( { message : 'Post not found'});
 						} else{
-							res.send ({
-								success : true
-							});
-						}
+							console.log(upPost);
+							if (!upPost){
+								res.status(400).send( { message : 'Post not found'});
+							} else{
+								res.send ({
+									success : true
+								});
+							}
+						}	
 					}
 			);
 

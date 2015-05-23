@@ -47,16 +47,8 @@ angular.module('AuthService', [])
 
 			isLoggedIn : function(){
 				var token = auth.getToken();
-
 				if (token){
-					jwt.verify(token,TokenSecret.key, 
-						function(err,decoded){
-							if (err){
-								return false;
-							} else {
-								return true;
-							}
-						});
+					return true;
 				} else{
 					return false;
 				}

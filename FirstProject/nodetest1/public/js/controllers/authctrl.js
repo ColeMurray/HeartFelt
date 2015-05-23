@@ -7,9 +7,8 @@ angular.module('AuthCtrl',['AuthService'])
 		$scope.login = function(){
 			console.log($scope.user.username + ' ' + $scope.user.password);
 			Auth.login($scope.user).error(function(err){
-				console.log(err);
 				$scope.error = err;
-			}).then(function(){
+			}).success(function(){
 				$state.go('post');
 
 			});

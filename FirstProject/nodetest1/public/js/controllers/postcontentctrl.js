@@ -7,5 +7,11 @@ angular.module('PostContentCtrl',['PostService'])
 	
 		});
 
+		$scope.update = function(){
+			console.log($scope.post);
+			Post.update($scope.post);
+			Post.getAll();
+		}
+
 
 	});
