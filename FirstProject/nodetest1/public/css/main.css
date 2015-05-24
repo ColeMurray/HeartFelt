@@ -1,6 +1,5 @@
 .page-center{
-	margin-top:150px;
-	margin-bottom:150px;
+	margin-top:13%;
 }
 
 body{
@@ -8,6 +7,16 @@ body{
 	height:100%;
 }
 html{
+	height:100%;
+}
+
+.navbar{
+	margin-bottom:0px;
+}
+
+.home-background{
+	padding-top:150px;
+	background-image: url("/assets/home-background.jpg");
 	height:100%;
 }
 
