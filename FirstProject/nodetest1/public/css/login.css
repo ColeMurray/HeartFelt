@@ -1,0 +1,29 @@
+.login-form{
+	padding:16px;
+}
+
+.logo-header{
+	margin-left:auto;
+	margin-right:auto;
+	width:90%;
+
+}
+
+.login-background{
+	background:#FFFFFF;
+	width:40%;
+	margin-left:auto;
+	margin-right:auto;
+	padding:16px;
+}
+
+.form-input-box{
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.form-input-field{
+	width:75%;
+	margin-left: auto;
+	margin-right: auto;
+}

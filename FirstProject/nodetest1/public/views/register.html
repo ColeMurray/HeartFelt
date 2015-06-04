@@ -1,21 +1,20 @@
-<div class="container page-center" ng-controller='AuthController'>
-	<div class="page-header">
-		<h1> HeartFelt</h1>
-	</div>
+<div class="page-center login-background" ng-controller="AuthController">
+<div class="logo-header">
+	<h1 class="text-center">HeartFelt</h1>
+</div>
 
-	<div ng-show="error" class="alert alert-danger row">
-		{{error.message}}
+<div ng-show="error" class="alert alert-danger row">
+	{{error.message}}
+</div>
+<form class="login-form" ng-submit='login()'>
+	<div class="form-group form-input-field">
+		<label for="email"> Email Address</label>
+		<input type="email" class="form-control" ng-model='user.username' id="email" placeholder="Enter email">
 	</div>
-
-	<form ng-submit='register()'>
-		<div class="form-group">
-			<label for="email"> Email Address</label>
-			<input type="email" class="form-control" id="email" ng-model='user.username' placeholder="Enter email">
-		</div>
-		<div class="form-group">
-			<label for="password"> Password</label>
-			<input type="password" class="form-control" ng-model='user.password' id="password" placeholder="Password">
-		</div>
-		<button class="btn btn-default" type="submit">Submit</button>
-	</form>
+	<div class="form-group form-input-field">
+		<label for="password">Password</label>
+		<input type="password" class="form-control" ng-model='user.password' id="password" placeholder="Password">
+	</div>
+	<button class="btn btn-warning form-input-field" style="display:block;" type="submit">Register</button>
+</form>
 </div>
