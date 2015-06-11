@@ -17,12 +17,22 @@ html{
 .home-background{
 	padding-top:150px;
 	background-image: url("/assets/home-background.jpg");
+	background-repeat: no-repeat;
 	height:100%;
+}
+@media screen and (min-width: 1660px){
+	.home-background{
+		background-size: 100%;
+	}
 }
 
 .nav-background{
 	background:#00BCD4;
 	color:#FFFFFF;
+}
+
+.navbar-brand#hf-brand{
+	margin-left: 0px;
 }
 
 .list-left{
