@@ -7,13 +7,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" id="hf-brand" ui-sref="home">HeartFelt</a>
+		<a class="primary-color500 navbar-brand" id="hf-brand" ui-sref="home">HeartFelt</a>
 	</div>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li ng-hide="loggedIn()"><a ui-sref="login">Login</a></li>
 			<li ng-show="loggedIn()"><a ng-click="logout()" href="#">Logout</a></li>
 			<li ng-hide="loggedIn()"> <a href="#/register">Register</a></li>
+			<li ng-hide="loggedIn()"><a class="primary-color500" ui-sref="login">Login</a></li>
 		</ul>
 	</div> <!-- /.navbar-collapse -->
 	</div> <!-- /.container-fluid -->

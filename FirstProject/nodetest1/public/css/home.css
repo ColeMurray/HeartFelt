@@ -2,3 +2,15 @@
 	margin-left:auto;
 	margin-right:0;
 }
+
+.home-background{
+	padding-top:150px;
+	background-image: url("/assets/home-background.jpg");
+	background-repeat: no-repeat;
+	height:100%;
+}
+@media screen and (min-width: 1660px){
+	.home-background{
+		background-size: 100%;
+	}
+}
