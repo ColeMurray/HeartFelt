@@ -1,9 +1,11 @@
-<div class="full-height">
-	<div class="post-content">
-	<form style="height:100%" ng-submit='handlePost()'>
-		<input class="post-content-title" type="text" placeholder="Untitled" ng-model='currpost.title' >
-		<textarea class="content-description" type="text" placeholder="Description" ng-model='currpost.content'></textarea>
+	<div class="form-wrapper" >
+	<form ng-submit='handlePost()' style="height:349px; margin-bottom:0px" >
+		<div class="post-title-wrapper">
+		<input class="Roboto-font post-content-title" type="text" placeholder="Untitled" ng-model='currpost.title' >
+		</div>
+		
+		<textarea class="Roboto-font content-description" type="text" placeholder="Description" ng-model='currpost.content'></textarea>
+
 		
 	</form>
 	</div>
-</div>

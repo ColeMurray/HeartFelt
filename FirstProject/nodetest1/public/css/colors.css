@@ -17,6 +17,17 @@
 .accent-color{
 	color:#9E2FB2;
 }
+
+.accent-color-background{
+	background-color: #9E2FB2;
+}
 .accent-color-light{
 	color:#DC80EC;
+}
+
+.white{
+	color:#FFFFFF;
+}
+.white-background{
+	background-color:#FFFFFF;
 }

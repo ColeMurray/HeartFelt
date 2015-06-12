@@ -7,7 +7,7 @@
 <div ng-show="error" class="alert alert-danger row">
 	{{error.message}}
 </div>
-<form class="login-form" ng-submit='login()'>
+<form class="login-form" ng-submit='register()'>
 	<div class="form-group form-input-field">
 		<label for="email"> Email Address</label>
 		<input type="email" class="form-control" ng-model='user.username' id="email" placeholder="Enter email">
@@ -16,7 +16,7 @@
 		<label for="password">Password</label>
 		<input type="password" class="form-control" ng-model='user.password' id="password" placeholder="Password">
 	</div>
-	<button class="btn btn-warning form-input-field" style="display:block;" type="submit">Register</button>
+	<button class="btn form-input-field primary-color500-background white" style="display:block;" type="submit">Register</button>
 </form>
 </div>
 </div>
