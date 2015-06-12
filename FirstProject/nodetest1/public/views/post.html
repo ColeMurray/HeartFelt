@@ -1,29 +1,3 @@
-<!-- <div class="container-fluid post-container" >
-	<div class="row">
-		<div class="col-xs-6 col-md-4">
-			<div class="post-header">
-				Posts <button class="btn btn-default" style="float:right;"><span class="glyphicon glyphicon-pencil" ng-click='newPost()' ></span></button>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-6 col-md-4">
-			<div class="post-list">
-				<ul class="list-group post-group">
-					<li ng-repeat='x in posts track by $index' class="list-group-item post-group-item" style="padding-bottom:16px;padding-top:16px;">
-						<a ng-click='setPost(x)' >{{x.title}}</a>
-					</li>
-				</ul>
-			</div>
-
-		</div>
-		<div class="col-xs-6 col-md-8 full-height">
-			<div class="full-height" ng-include="'views/post-content.html'"></div>
-		</div>
-	</div>
-
-</div> <!-->
-
 <div class="container page-center">
 	<div class="row" style="padding-bottom:8px;">
 		<div class="col-xs-6 col-md-4 col-md-offset-4">
@@ -40,7 +14,13 @@
 				<div class="post-list">
 					<ul class="list-group post-group">
 						<li ng-repeat='x in posts track by $index' class="list-group-item post-group-item" style="padding-bottom:16px;padding-top:16px;">
-							<a ng-click='setPost(x)' >{{x.title}}</a>
+							<div class="list-item" ng-click='setPost(x)'>
+								{{x.title}} <br>
+								{{x.content | strLimit: 50 }} 
+								<br>
+							
+								<span id="post-trash-icon" style="padding-top:8px" class="glyphicon glyphicon-trash accent-color" ng-click='delete(x,$index)'></span>
+							</div>
 						</li>
 					</ul>
 				</div>

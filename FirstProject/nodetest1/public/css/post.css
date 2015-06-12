@@ -51,16 +51,22 @@
 
 .post-group{
 	background: #FAFAFA;
+	margin-bottom:0px;
 }
 
 .post-group-item{
 	background:#FAFAFA;
 }
 
-.glyphicon.glyphicon-pencil {
-	font-size:24px;
+.post-group-item:active{
+	background:#e0e0e0;
+}
+.post-trash-wrapper{
+	float:right;
+	padding-bottom:16px;
 }
 
-.form-wrapper{
-
+#post-trash-icon:hover{
+	color : #683AB7;
+	font-size :16px;
 }

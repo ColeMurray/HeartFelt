@@ -175,6 +175,26 @@ var TokenSecret = require( __base + 'config/tokensecret');
 
 		});
 
+		app.delete('/posts/:id', verifyToken, function(req,res){
+			var token = res.decoded;
+			if (token){
+				var id = req.params.id;
+				var username = token.username;
+				Post.findOne( { _id : id, author : username }, function(err,post){
+					if (err) throw err;
+					if (post){
+						post.remove(function(err){
+							if (err) throw err;
+							res.send({'success' : true });
+						});
+					} else{
+						res.status(400).send({ 'message' : 'Post not found'});
+					}
+					
+				});
+			}
+		});
+
 		app.post('/posts', verifyToken, function (req,res){
 			console.log(res.decoded);
 			var token = res.decoded;

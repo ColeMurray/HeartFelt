@@ -25,6 +25,14 @@ angular.module('PostCtrl', ['PostService'])
 			console.log(p);
 		};
 
+		$scope.delete = function(post, index){
+			Post.delete(post._id).success(function(data){
+				$scope.posts.splice(index,1);
+				$scope.currpost = {};
+			});
+			console.log('Delete called!!');
+		};
+
 		$scope.handlePost = function(){
 			if (!$scope.currpost._id){
 				$scope.create();
@@ -45,7 +53,8 @@ angular.module('PostCtrl', ['PostService'])
 		};
 
 		$scope.newPost = function(){
-			$scope.clearPost().then($scope.create());
+			$scope.clearPost();
+			$scope.create();
 		}
 
 		var timeout = null;

@@ -24,7 +24,14 @@ angular.module('PostService',['AuthService'])
 					content : postData.content
 					};
 				return $http.put('/posts/' + postData._id, data);		 
+			},
+
+			delete : function(id){
+				console.log('Delete called');
+				return $http.delete('/posts/' + id);
 			}
+
+
 		};
 
 		return Post;
