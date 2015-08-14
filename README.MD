@@ -2,8 +2,5 @@
 This will be home to node projects
 
 
-Documentation
-
-| Request | URL | Functionality |
-|:--------:| :---------: | :--------:|
-POST       | http://[hostname]/login | User login |
+Heartfelt
+![Home Page] (https://i.imgur.com/ia8s3Lb.jpg)
