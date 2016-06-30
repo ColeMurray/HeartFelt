@@ -1,7 +1,9 @@
-#Node.js
-This will be home to node projects
+#HeartFelt
+
+Heartfelt is a web application created using the MEAN stack.
+
+Heartfelt allows users to create heartfelt messages and send them
+to a user of their choice
 
 
-Heartfelt
-http://heartfelt.murraycole.com
-![Home Page] (https://i.imgur.com/ia8s3Lb.jpg)
+
