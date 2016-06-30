@@ -1,7 +1,12 @@
 #HeartFelt
+##### This project is no longer being maintained
 
 Heartfelt is a web application created using the MEAN stack.
 It allows users to create notes that are persisted.
+
+http://heartfelt.murraycole.com
+
+
 
 ### Setup:
 1. git clone https://github.com/ColeMurray/HeartFelt.git
