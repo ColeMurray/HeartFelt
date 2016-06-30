@@ -12,5 +12,7 @@ It allows users to create notes that are persisted.
 6. Navigate to locahost:3000
 
 
+![HeartFelt Homepage](https://raw.githubusercontent.com/ColeMurray/HeartFelt/master/gitreadme_bg.jpg)
+
 
 
