@@ -55,7 +55,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 						console.log ('User saved');
 						
 						var token = jwt.sign(newUser,TokenSecret.key,{
-							expiresInMinutes : 1440
+							expiresIn : 1440
 						});
 						res.json({
 									success: true,
@@ -84,7 +84,7 @@ var TokenSecret = require( __base + 'config/tokensecret');
 
 						//create token
 						var token = jwt.sign(user1, TokenSecret.key, {
-							expiresInMinutes : 1440 // 24 hours
+							expiresIn : 1440 // 24 hours
 						});
 
 						res.json({
